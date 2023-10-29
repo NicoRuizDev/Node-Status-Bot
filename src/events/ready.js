@@ -41,7 +41,7 @@ module.exports = {
           } else {
             console.error(`Channel with ID ${CHANNEL_ID} not found.`);
           }
-        }, 1000);
+        }, 10000);
       });
     },
 };
@@ -63,7 +63,7 @@ async function sendOrUpdateStatusMessage(channel) {
     const totalRamGB = ramData.total ? (ramData.total / 1024 / 1024 / 1024).toFixed(2) : "N/A";
     const cpuLoad = cpuData.currentLoad ? cpuData.currentLoad.toFixed(2) : "N/A";
 
-    const graphBarLength = 20;
+    const graphBarLength = 35;
     const ramGraph = generateProgressBar(usedRamGB === "N/A" ? 0 : usedRamGB / totalRamGB, graphBarLength);
     const cpuGraph = generateProgressBar(cpuLoad === "N/A" ? 0 : cpuLoad / 100, graphBarLength);
 
